@@ -1,0 +1,17 @@
+.spinner-container {
+  top: 50%;
+  left: 50%;
+  margin: -50px 0px 0px -50px;
+}
+
+.spinner {
+  border: #e7040f; /* dark-red */
+  border-left-color: #cccccc; /* moon-gray */
+  border-bottom-color: #cccccc;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
