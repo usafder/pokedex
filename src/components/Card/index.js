@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = (props) => {
   const renderTitle = () => (
-    <h1 className="f4" style={props.titleStyle}>
+    <h1 className="f4 ttc" style={props.titleStyle}>
       {props.title}
     </h1>
   );
