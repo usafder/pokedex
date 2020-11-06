@@ -5,7 +5,8 @@
 }
 
 .spinner {
-  border: #e7040f; /* dark-red */
+  border-top-color: #e7040f; /* dark-red */
+  border-right-color: #e7040f;
   border-left-color: #cccccc; /* moon-gray */
   border-bottom-color: #cccccc;
   animation: spin 1s linear infinite;
