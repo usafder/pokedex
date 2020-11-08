@@ -2,25 +2,31 @@ import React from 'react';
 import { Card } from '../';
 
 const List = (props) => {
-  return props.dataSource.map((data) => (
-    <Card
-      key={data.id}
-      title={data.name}
-      imageSource={data.sprites.front_default}
-    >
+  return (
+    <div className="flex flex-wrap justify-around">
       {
-        // nested .map(...) not an issue since types is at most 2 in length
-        data.types.map((item, index) => (
-          <span
-            key={item.type.name + item.id}
-            className={`bg-light-silver ph2 pv1 br3 ${index > 0 ? 'ml1' : ''}`}
+        props.dataSource.map((data) => (
+          <Card
+            key={data.name + data.id}
+            title={data.name}
+            imageSource={`https://veekun.com/dex/media/pokemon/global-link/${data.id}.png`}
           >
-            {item.type.name}
-          </span>
+            {
+              // nested .map(...) not an issue since types is at most 2 in length
+              data.types.map((item, index) => (
+                <span
+                  key={item.type.name + item.id}
+                  className={`f6 dib bg-moon-gray mv2 ph2 pv1 br2 ${index > 0 ? 'ml1' : ''}`}
+                >
+                  {item.type.name}
+                </span>
+              ))
+            }
+          </Card>
         ))
       }
-    </Card>
-  ));
+    </div>
+  );
 };
 
 export default List;

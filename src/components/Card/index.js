@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = (props) => {
   const renderTitle = () => (
-    <h1 className="f4 ttc" style={props.titleStyle}>
+    <h1 className="f4 ttc bg-red washed-yellow ma0 pv1 br2 br--top" style={props.titleStyle}>
       {props.title}
     </h1>
   );
@@ -11,7 +11,7 @@ const Card = (props) => {
     props.imageSource && (
       <img
         src={props.imageSource}
-        className="br-100 mt2 bg-light-yellow ba b--black-10"
+        className="db center mt1 ph1 h5 w5"
         style={props.imageStyle}
         alt="pokemon"
       />
@@ -23,16 +23,14 @@ const Card = (props) => {
   );
 
   return (
-    <div className="fl w-100 w-third-ns pa2" style={props.containerStyle}>
+    <div className="mh1 mv3" style={props.containerStyle}>
       <div
-        className="tc pb3 br2 bg-white shadow-5 pointer grow center w-75-l"
+        className="tc bg-washed-yellow br2 shadow-5 pointer grow"
         style={props.contentContainerStyle}
       >
+        {renderTitle()}
         {renderImage()}
-        <div>
-          {renderTitle()}
-          {renderContent()}
-        </div>
+        {renderContent()}
       </div>
     </div>
   );
