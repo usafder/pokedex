@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { List, Spinner } from '../components';
-import { getPokemonList } from '../core/thunks/pokemon';
+import { fetchPokemonList } from '../core/thunks/pokemon';
 
 // TODO: convert class component into a functional component
 class App extends React.Component {
   componentDidMount() {
-    this.props.getPokemonList();
+    this.props.fetchPokemonList();
   }
 
   renderSpinner = () => (<Spinner loadingText="Loading..." />);
@@ -27,6 +27,6 @@ const mapStateToProps = (state) => ({
   isLoading: state.pokemon.isLoading,
 });
 
-const mapDispatchToProps = { getPokemonList };
+const mapDispatchToProps = { fetchPokemonList };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
