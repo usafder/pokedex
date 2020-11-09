@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from '../';
+import { getClassNameForType } from '../../utils';
 
 const List = (props) => {
   return (
@@ -16,7 +17,7 @@ const List = (props) => {
               data.types.map((item, index) => (
                 <span
                   key={item.type.name + item.id}
-                  className={`f6 dib bg-moon-gray mv2 ph2 pv1 br2 ${index > 0 ? 'ml1' : ''}`}
+                  className={`f6 dib mv2 ph2 pv1 br2 ${getClassNameForType(item.type.name)} ${index > 0 ? 'ml1' : ''}`}
                 >
                   {item.type.name}
                 </span>
