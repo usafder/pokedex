@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from '../';
-import { getClassNameForType } from '../../utils';
+import { getClassNameForType, padString } from '../../utils';
 
 const List = (props) => {
   return (
@@ -10,6 +10,7 @@ const List = (props) => {
           <Card
             key={data.name + data.id}
             title={data.name}
+            subtitle={`#${padString(data.id)}`}
             imageSource={`https://veekun.com/dex/media/pokemon/global-link/${data.id}.png`}
           >
             {
