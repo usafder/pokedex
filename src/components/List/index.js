@@ -11,7 +11,7 @@ const List = (props) => {
             key={data.name + data.id}
             title={data.name}
             subtitle={`#${padString(data.id)}`}
-            imageSource={`https://veekun.com/dex/media/pokemon/global-link/${data.id}.png`}
+            imageSource={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${padString(data.id)}.png`}
           >
             {
               // nested .map(...) not an issue since types is at most 2 in length
