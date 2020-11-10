@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Card, List, Spinner } from '../components';
+import { Badge, Card, List, Spinner } from '../components';
 import { fetchPokemonList } from '../core/thunks/pokemon';
 import { getClassNameForType, padString } from '../utils';
 
@@ -22,16 +22,17 @@ class App extends React.Component {
         subtitle={`#${id}`}
         imageSource={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`}
       >
-        {
-          data.types.map(({ type }, index) => (
-            <span
-              key={type.name + id}
-              className={`f6 dib mv2 ph2 pv1 br2 ${getClassNameForType(type.name)} ${index > 0 ? 'ml1' : ''}`}
-            >
-              {type.name}
-            </span>
-          ))
-        }
+        <div className="flex flex-wrap justify-center pb1">
+          {
+            data.types.map(({ type }) => (
+              <Badge
+                key={type.name + id}
+                label={type.name}
+                backgroundColor={getClassNameForType(type.name)}
+              />
+            ))
+          }
+        </div>
       </Card>
     );
   };
