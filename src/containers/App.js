@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Badge, Card, List, Popup, Spinner } from '../components';
+import { Badge, Card, Header, List, Popup, Spinner } from '../components';
 import { showPopup, hidePopup } from '../core/actionCreators/popup';
 import { fetchPokemonList } from '../core/thunks/pokemon';
 import { getClassNameForType, padString } from '../utils';
@@ -50,6 +50,7 @@ function App() {
 
   return (
     <div>
+      <Header />
       {
         isPopupVisible && (
           <Popup hidePopup={dispatchHidePopup}>
