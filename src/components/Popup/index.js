@@ -1,16 +1,21 @@
 import React from 'react';
-import './index.css';
+import Modal from 'react-modal';
 
-const Popup = (props) => (
-  <div
-    className="tc absolute t-0 w-100 h-100 flex items-center justify-center popup-container"
-    style={props.popupContainerStyle}
-  >
-    <div className="relative w-75 h-75 bg-white br2" style={props.popupContentContainerStyle}>
-      <div className="absolute top-0 right-0 mt2 mr3 fw8 pointer dim" onClick={props.hidePopup}>X</div>
+Modal.setAppElement('#root');
+
+const Popup = (props) => {
+  const handleAfterOpen = () => document.body.style.overflow = 'hidden';
+  const handleAfterClose = () => document.body.style.overflow = 'auto';
+
+  return (
+    <Modal
+      isOpen={props.isVisible}
+      onAfterOpen={handleAfterOpen}
+      onAfterClose={handleAfterClose}
+    >
       {props.children}
-    </div>
-  </div>
-);
+    </Modal>
+  );
+};
 
 export default Popup;

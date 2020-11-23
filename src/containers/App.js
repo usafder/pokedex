@@ -51,13 +51,10 @@ function App() {
   return (
     <div>
       <Header />
-      {
-        isPopupVisible && (
-          <Popup hidePopup={dispatchHidePopup}>
-            <p>Work in progress.</p>
-          </Popup>
-        )
-      }
+      <Popup isVisible={isPopupVisible}>
+        <p>Work in progress.</p>
+        <button onClick={dispatchHidePopup}>Close</button>
+      </Popup>
       {isListLoading ? renderSpinner() : renderList()}
     </div>
   );
