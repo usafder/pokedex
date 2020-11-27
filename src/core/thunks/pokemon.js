@@ -8,7 +8,7 @@ import apiClient from '../../services/apiClient';
 
 export const fetchPokemonList = () => (dispatch) => {
   dispatch(getPokemonList())
-  apiClient.get('https://pokeapi.co/api/v2/pokemon?limit=9')
+  apiClient.get('https://pokeapi.co/api/v2/pokemon?limit=151')
     .then((response) => {
       Promise.all(response.results.map((item) => apiClient.get(item.url)))
         .then((data) => dispatch(getPokemonListSuccess(data)))
