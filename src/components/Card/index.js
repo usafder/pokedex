@@ -32,7 +32,7 @@ const Card = (props) => {
   return (
     <div className="mh1 mv3" style={props.containerStyle} onClick={props.onClickHandler}>
       <div
-        className="tc bg-washed-yellow br2 shadow-5 pointer grow"
+        className="tc bg-washed-yellow br2 shadow-5"
         style={props.contentContainerStyle}
       >
         {renderTitle()}

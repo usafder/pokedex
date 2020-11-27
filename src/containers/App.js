@@ -24,25 +24,26 @@ function App() {
     const id = padString(data.id);
 
     return (
-      <Card
-        key={data.name + id}
-        title={data.name}
-        subtitle={`#${id}`}
-        imageSource={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`}
-        onClickHandler={dispatchShowPopup}
-      >
-        <div className="flex flex-wrap justify-center pb1">
-          {
-            data.types.map(({ type }) => (
-              <Badge
-                key={type.name + id}
-                label={type.name}
-                backgroundColor={getClassNameForType(type.name)}
-              />
-            ))
-          }
-        </div>
-      </Card>
+      <div key={data.name + id} className="grow pointer">
+        <Card
+          title={data.name}
+          subtitle={`#${id}`}
+          imageSource={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`}
+          onClickHandler={dispatchShowPopup}
+        >
+          <div className="flex flex-wrap justify-center pb1">
+            {
+              data.types.map(({ type }) => (
+                <Badge
+                  key={type.name + id}
+                  label={type.name}
+                  backgroundColor={getClassNameForType(type.name)}
+                />
+              ))
+            }
+          </div>
+        </Card>
+      </div>
     );
   };
 
