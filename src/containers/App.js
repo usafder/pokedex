@@ -1,22 +1,27 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Badge, Card, Header, List, Popup, Spinner } from '../components';
-import { showPopup, hidePopup } from '../core/actionCreators/popup';
+import { Card, Header, List, Popup, Spinner } from '../components';
+import { showPopup } from '../core/actionCreators/popup';
+import { setSelectedPokemon } from '../core/actionCreators/pokemon';
 import { fetchPokemonList } from '../core/thunks/pokemon';
-import { getClassNameForType, padString } from '../utils';
+import { padString } from '../utils';
+import { POKE_IMG_BASE_URL } from '../constants/urls';
+import PokemonDetail from './PokemonDetail';
 
 function App() {
-  const dispatch = useDispatch();
-  const dispatchShowPopup = () => dispatch(showPopup());
-  const dispatchHidePopup = () => dispatch(hidePopup());
-
   const pokemonList = useSelector((state) => state.pokemon.list);
   const isListLoading = useSelector((state) => state.pokemon.isLoading);
   const isPopupVisible = useSelector((state) => state.popup.isVisible);
 
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPokemonList());
   }, [dispatch]);
+
+  const showSelectedPokemon = (data) => () => {
+    dispatch(setSelectedPokemon(data));
+    dispatch(showPopup());
+  };
 
   const renderSpinner = () => (<Spinner loadingText="Loading..." />);
 
@@ -28,21 +33,9 @@ function App() {
         <Card
           title={data.name}
           subtitle={`#${id}`}
-          imageSource={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`}
-          onClickHandler={dispatchShowPopup}
-        >
-          <div className="flex flex-wrap justify-center pb1">
-            {
-              data.types.map(({ type }) => (
-                <Badge
-                  key={type.name + id}
-                  label={type.name}
-                  backgroundColor={getClassNameForType(type.name)}
-                />
-              ))
-            }
-          </div>
-        </Card>
+          imageSource={`${POKE_IMG_BASE_URL}/${id}.png`}
+          onClickHandler={showSelectedPokemon(data)}
+        />
       </div>
     );
   };
@@ -53,8 +46,7 @@ function App() {
     <div>
       <Header />
       <Popup isVisible={isPopupVisible}>
-        <p>Work in progress.</p>
-        <button onClick={dispatchHidePopup}>Close</button>
+        <PokemonDetail />
       </Popup>
       {isListLoading ? renderSpinner() : renderList()}
     </div>
