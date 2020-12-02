@@ -1,8 +1,7 @@
 import React from 'react';
 import { GITHUB_REPO_URL } from '../../constants/urls';
 
-// TODO: update About href
-const Header = () => (
+const Header = React.memo(() => (
   <header>
     <div className="bg-near-black">
       <nav className="flex flex-wrap items-center justify-between pa3">
@@ -19,6 +18,6 @@ const Header = () => (
       </nav>
     </div>
   </header>
-);
+));
 
 export default Header;
