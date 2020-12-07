@@ -1,12 +1,4 @@
-.spinner-container {
-  top: 50%;
-  left: 50%;
-  margin: -50px 0px 0px -50px;
-}
-
 .spinner {
-  border-top-color: #e7040f; /* dark-red */
-  border-right-color: #e7040f;
   border-left-color: #cccccc; /* moon-gray */
   border-bottom-color: #cccccc;
   animation: spin 1s linear infinite;
