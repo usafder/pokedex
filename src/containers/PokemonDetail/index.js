@@ -82,7 +82,7 @@ const PokemonDetail = () => {
     }))
 
     return (
-      <div className="w-70-ns center-ns ph2 pa0-ns garamond">
+      <div className="w-70-ns center-ns ph2 pa0-ns f6">
         {renderFieldsGroup('Profile', firstFieldsGroup)}
         {renderFieldsGroup('Base Stats', secondFieldsGroup)}
       </div>
