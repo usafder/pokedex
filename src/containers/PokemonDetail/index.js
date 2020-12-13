@@ -90,7 +90,7 @@ const PokemonDetail = () => {
   };
 
   return (
-    <div className="tc ttc h-100 pa2 pt3-l">
+    <div className="tc ttc pa2 pt3-l">
       {renderCloseButton()}
       {renderImage()}
       {renderNameAndID()}
