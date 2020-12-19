@@ -1,6 +1,6 @@
 import { SHOW_POPUP, HIDE_POPUP } from '../actionTypes/popup';
 
-const INITIAL_STATE = { isVisible: false };
+export const INITIAL_STATE = { isVisible: false };
 
 const popupReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {

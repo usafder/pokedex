@@ -5,7 +5,7 @@ import {
   SET_SELECTED_POKEMON,
 } from '../actionTypes/pokemon';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   isLoading: true,
   error: null,
   list: [],
