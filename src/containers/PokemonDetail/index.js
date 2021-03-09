@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Badge, Card } from '../../components';
 import { hidePopup } from '../../core/actionCreators/popup';
-import { getClassNameForType, padString } from '../../utils';
+import { getClassNameForType, padString } from '../../shared/utils';
 
 const PokemonDetail = () => {
   const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon);
