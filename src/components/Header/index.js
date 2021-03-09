@@ -1,5 +1,4 @@
 import React from 'react';
-import { GITHUB_REPO_URL } from '../../constants/urls';
 
 const Header = React.memo(() => (
   <header>
@@ -10,7 +9,7 @@ const Header = React.memo(() => (
         </a>
         <a
           className="mr2-m mr3-l f6 fw4 near-white no-underline dim"
-          href={GITHUB_REPO_URL}
+          href={process.env.REACT_APP_GITHUB_REPO_URL}
           target="blank"
         >
           About

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Badge, Card } from '../../components';
 import { hidePopup } from '../../core/actionCreators/popup';
 import { getClassNameForType, padString } from '../../utils';
-import { POKE_IMG_BASE_URL } from '../../constants/urls';
 
 const PokemonDetail = () => {
   const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon);
@@ -23,7 +22,7 @@ const PokemonDetail = () => {
 
   const renderImage = () => (
     <img
-      src={`${POKE_IMG_BASE_URL}/${id}.png`}
+      src={`${process.env.REACT_APP_POKE_IMG_BASE_URL}/${id}.png`}
       alt="pokemon"
       className="h5-l w5-l bg-near-white br-100 shadow-1"
     />

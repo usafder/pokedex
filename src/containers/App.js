@@ -5,7 +5,6 @@ import { showPopup } from '../core/actionCreators/popup';
 import { setSelectedPokemon } from '../core/actionCreators/pokemon';
 import { fetchPokemonList } from '../core/thunks/pokemon';
 import { padString } from '../utils';
-import { POKE_IMG_BASE_URL } from '../constants/urls';
 import PokemonDetail from './PokemonDetail';
 
 function App() {
@@ -33,7 +32,7 @@ function App() {
         <Card
           title={data.name}
           subtitle={`#${id}`}
-          imageSource={`${POKE_IMG_BASE_URL}/${id}.png`}
+          imageSource={`${process.env.REACT_APP_POKE_IMG_BASE_URL}/${id}.png`}
           onClickHandler={showSelectedPokemon(data)}
         />
       </div>
