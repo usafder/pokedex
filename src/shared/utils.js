@@ -41,8 +41,8 @@ export const getClassNameForType = (type) => {
   }
 };
 
-export const padString = (value, targetLength = 3, padString = '0', padPosition = 'start') => {
+export const padString = (value, targetLength = 3, charToPad = '0', padPosition = 'start') => {
   const str = value.toString();
   const methodName = padPosition === 'start' ? 'padStart' : 'padEnd';
-  return str[methodName](targetLength, padString);
+  return str[methodName](targetLength, charToPad);
 };
