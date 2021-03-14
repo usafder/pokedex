@@ -78,7 +78,7 @@ const PokemonDetail = () => {
     ];
     const secondFieldsGroup = selectedPokemon.stats.map((item) => ({
       label: item.stat.name, value: item.base_stat,
-    }))
+    }));
 
     return (
       <div className="w-70-ns center-ns ph2 pa0-ns f6">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = React.memo(() => (
+const Header = () => (
   <header>
     <div className="bg-near-black">
       <nav className="flex flex-wrap items-center justify-between pa3">
@@ -17,6 +17,6 @@ const Header = React.memo(() => (
       </nav>
     </div>
   </header>
-));
+);
 
-export default Header;
+export default React.memo(Header);

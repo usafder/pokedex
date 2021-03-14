@@ -1,7 +1,7 @@
 const apiClient = {
   get: async (url) => {
     return fetch(url).then(async (response) => {
-      const data = await response.json()
+      const data = await response.json();
       return response.ok ? data : Promise.reject(data);
     });
   },
