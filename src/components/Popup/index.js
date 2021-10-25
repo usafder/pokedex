@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import PropTypes from 'prop-types';
 
 Modal.setAppElement('#root');
 
@@ -18,6 +19,11 @@ const Popup = (props) => {
       {props.children}
     </Modal>
   );
+};
+
+Popup.propTypes = {
+  isVisible: PropTypes.bool,
+  children: PropTypes.element,
 };
 
 export default Popup;

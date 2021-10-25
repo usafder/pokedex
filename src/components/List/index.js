@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const List = (props) => {
   return (
@@ -6,6 +7,15 @@ const List = (props) => {
       {props.dataSource.map((data, index) => props.renderItem(data, index))}
     </div>
   );
+};
+
+List.propTypes = {
+  renderItem: PropTypes.func,
+  dataSource: PropTypes.array,
+  listContainerStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
 };
 
 export default List;
