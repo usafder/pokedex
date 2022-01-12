@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const arePropsEqual = (prevProps, nextProps) => (
   prevProps.title === nextProps.title && prevProps.subtitle === nextProps.subtitle
@@ -43,5 +44,40 @@ const Card = React.memo((props) => {
     </div>
   );
 }, arePropsEqual);
+
+Card.displayName = 'Card';
+
+Card.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  imageSource: PropTypes.string,
+  textContent: PropTypes.string,
+  onClickHandler: PropTypes.func,
+  children: PropTypes.element,
+  titleStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
+  subtitleStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
+  imageStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
+  textContentStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
+  containerStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
+  contentContainerStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
+};
 
 export default Card;

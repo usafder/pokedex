@@ -57,7 +57,7 @@ const PokemonDetail = () => {
 
   const renderFieldsGroup = (title, fields) => (
     <Card title={title} >
-      <ul className="bg-white list ma0 pl0 mw6">
+      <ul className="bg-white list ma0 pl0">
         {
           fields.map((field) => (
             <li key={field.label} className="pa2">{renderField(field.label, field.value)}</li>
@@ -89,7 +89,7 @@ const PokemonDetail = () => {
   };
 
   return (
-    <div className="tc ttc pa2 pt3-l">
+    <div className="tc ttc ph2 pt3">
       {renderCloseButton()}
       {renderImage()}
       {renderNameAndID()}

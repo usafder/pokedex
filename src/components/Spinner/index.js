@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 
 const Spinner = (props) => (
@@ -10,5 +11,21 @@ const Spinner = (props) => (
     {props.loadingText && <p style={props.loadingTextStyle}>{props.loadingText}</p>}
   </div>
 );
+
+Spinner.propTypes = {
+  loadingText: PropTypes.string,
+  loadingTextStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
+  spinnerContainerStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
+  spinnerStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
+};
 
 export default Spinner;

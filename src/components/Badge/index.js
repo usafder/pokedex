@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Badge = (props) => {
   const badgeSize = { large: 'f4', medium: 'f5', small: 'f6' };
@@ -11,6 +12,16 @@ const Badge = (props) => {
       {props.label}
     </div>
   );
+};
+
+Badge.propTypes = {
+  size: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  label: PropTypes.string,
+  badgeStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
 };
 
 export default Badge;
