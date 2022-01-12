@@ -1,0 +1,12 @@
+name: GitHub Actions Demo
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm install
+      - run: npm build
+      - run: npm run publish
