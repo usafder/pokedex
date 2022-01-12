@@ -13,5 +13,8 @@ jobs:
         with:
           node-version: 16
       - run: npm install
-      - run: npm build
-      - run: npm run publish
+      - run: npm run build
+      - uses: JamesIves/github-pages-deploy-action@v4.2.2
+        with:
+          branch: main # The branch the action should deploy to.
+          folder: build
