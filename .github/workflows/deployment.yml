@@ -1,14 +1,14 @@
-name: CD
+name: deployment
 on:
   workflow_run:
     workflows:
-      - 'ci'
+      - code-quality-check
     types:
       - completed
 
 jobs:
   build-and-deploy:
-    concurrency: cd-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    concurrency: ${{ github.workflow }}-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -16,10 +16,21 @@ jobs:
 
       - name: Setup node
         uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+          cache: npm
 
-      - name: Install dependencies
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        id: dependencies-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-dependencies-cache-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies (on cache miss)
+        if: steps.dependencies-cache.outputs.cache-hit != 'true'
         run: npm ci
-      
+
       - name: Build
         run: npm run build
         env:
@@ -27,8 +38,8 @@ jobs:
           REACT_APP_POKE_IMG_BASE_URL: ${{ vars.REACT_APP_POKE_IMG_BASE_URL }}
           REACT_APP_GITHUB_REPO_URL: ${{ vars.REACT_APP_GITHUB_REPO_URL }}
 
-      - name: Deploy 🚀
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: build # The folder the action should deploy.
+          folder: build
