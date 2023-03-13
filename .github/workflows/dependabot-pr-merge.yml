@@ -1,10 +1,10 @@
-name: auto-merge dependabot PR
+name: dependabot-pr-merge
 on:
   workflow_run:
     branches:
       - dependabot/**
     workflows:
-      - "ci"
+      - code-quality-check
     types:
       - completed
 
@@ -25,4 +25,3 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.workflow_run.pull_requests[0].number }}
           REPO: ${{ github.event.repository.full_name }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
