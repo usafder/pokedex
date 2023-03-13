@@ -1,6 +1,7 @@
 {
   "name": "pokedex",
-  "version": "0.1.0",
+  "homepage": "https://usafder.github.io/pokedex/",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "react": "^17.0.1",
