@@ -2,15 +2,12 @@
   "name": "pokedex",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "16.x"
-  },
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-modal": "^3.16.1",
     "react-redux": "^7.2.2",
-    "react-scripts": "4.0.0",
+    "react-scripts": "^5.0.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "tachyons": "^4.12.0"
