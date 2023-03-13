@@ -22,6 +22,10 @@ jobs:
       
       - name: Build
         run: npm run build
+        env:
+          REACT_APP_POKE_API_BASE_URL: ${{ vars.REACT_APP_POKE_API_BASE_URL }}
+          REACT_APP_POKE_IMG_BASE_URL: ${{ vars.REACT_APP_POKE_IMG_BASE_URL }}
+          REACT_APP_GITHUB_REPO_URL: ${{ vars.REACT_APP_GITHUB_REPO_URL }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
