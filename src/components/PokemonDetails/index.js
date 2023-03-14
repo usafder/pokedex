@@ -6,8 +6,8 @@ import PokemonType from './PokemonType';
 import PokemonStats from './PokemonStats';
 
 const PokemonDetails = () => {
-  const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon);
-  const id = padString(selectedPokemon.id);
+  const selectedPokemonId = useSelector((state) => padString(state.pokemon.selectedPokemon.id));
+  const selectedPokemonName = useSelector((state) => state.pokemon.selectedPokemon.name);
 
   const dispatch = useDispatch();
   const dispatchHidePopup = () => dispatch(hidePopup());
@@ -22,14 +22,14 @@ const PokemonDetails = () => {
       </button>
 
       <img
-        src={`${process.env.REACT_APP_POKE_IMG_BASE_URL}/${id}.png`}
+        src={`${process.env.REACT_APP_POKE_IMG_BASE_URL}/${selectedPokemonId}.png`}
         alt="pokemon"
         className="h5-l w5-l bg-near-white br-100 shadow-1"
       />
 
       <h1 className="code ma0 f2">
-        {selectedPokemon.name}
-        <span className="courier f5 db">#{id}</span>
+        {selectedPokemonName}
+        <span className="courier f5 db">#{selectedPokemonId}</span>
       </h1>
 
       <PokemonType />
