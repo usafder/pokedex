@@ -1,4 +1,4 @@
-import { SHOW_POPUP, HIDE_POPUP } from '../actionTypes/popup';
+import { SHOW_POPUP, HIDE_POPUP } from '../action-types/popup';
 import { showPopup, hidePopup } from './popup';
 
 describe('popup action creator', () => {
