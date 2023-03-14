@@ -2,7 +2,28 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Badge, Card } from '../../components';
 import { hidePopup } from '../../core/actionCreators/popup';
-import { getClassNameForType, padString } from '../../shared/utils';
+import { padString } from '../../shared/utils';
+
+const POKEMON_TYPE_COLOR = {
+  normal: 'bg-moon-gray',
+  fire: 'bg-orange near-white',
+  water: 'bg-light-blue',
+  grass: 'bg-green near-white',
+  electric: 'bg-yellow',
+  ice: 'bg-lightest-blue',
+  fighting: 'bg-dark-red near-white',
+  poison: 'bg-light-purple near-white',
+  ground: 'bg-gold',
+  flying: 'bg-blue near-white',
+  psychic: 'bg-hot-pink near-white',
+  bug: 'bg-light-green',
+  rock: 'bg-light-yellow',
+  ghost: 'bg-purple near-white',
+  dark: 'bg-mid-gray near-white',
+  dragon: 'bg-dark-blue near-white',
+  steel: 'bg-silver near-white',
+  fairy: 'bg-light-pink',
+};
 
 const PokemonDetail = () => {
   const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon);
@@ -42,7 +63,7 @@ const PokemonDetail = () => {
           <Badge
             key={type.name + id}
             label={type.name}
-            backgroundColor={getClassNameForType(type.name)}
+            backgroundColor={POKEMON_TYPE_COLOR[type.name]}
           />
         ))
       }
