@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Badge, Card } from '../../components';
-import { hidePopup } from '../../core/actionCreators/popup';
+import { hidePopup } from '../../state/action-creators/popup';
 import { padString } from '../../shared/utils';
 
 const POKEMON_TYPE_COLOR = {

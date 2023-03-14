@@ -3,7 +3,7 @@ import {
   GET_POKEMON_LIST_SUCCESS,
   GET_POKEMON_LIST_FAILURE,
   SET_SELECTED_POKEMON,
-} from '../actionTypes/pokemon';
+} from '../action-types/pokemon';
 
 export const INITIAL_STATE = {
   isLoading: true,

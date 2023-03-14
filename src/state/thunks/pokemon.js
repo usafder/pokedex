@@ -2,7 +2,7 @@ import {
   getPokemonList,
   getPokemonListSuccess,
   getPokemonListFailure,
-} from '../actionCreators/pokemon';
+} from '../action-creators/pokemon';
 import apiClient from '../../api/api-client';
 
 
