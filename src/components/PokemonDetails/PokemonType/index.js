@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Badge from '../Badge';
+import Badge from '../../Badge';
 
 const POKEMON_TYPE_COLOR = {
   normal: 'bg-moon-gray',
