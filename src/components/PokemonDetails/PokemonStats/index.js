@@ -1,9 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAtomValue } from 'jotai';
+import { selectedPokemonAtom } from '../../../state/atoms';
 import PokemonStatsCard from './PokemonStatsCard';
 
 const PokemonStats = () => {
-  const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon);
+  const selectedPokemon = useAtomValue(selectedPokemonAtom);
 
   return (
     <div className="w-70-ns center-ns ph2 pa0-ns f6">

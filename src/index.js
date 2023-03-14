@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import 'tachyons';
-import { Provider } from 'react-redux';
-import './index.css';
 import App from './containers/App';
-import store from './state/store';
+import { Spinner } from './components';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Suspense fallback={<Spinner loadingText="Loading..." />}>
       <App />
-    </Provider>
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );

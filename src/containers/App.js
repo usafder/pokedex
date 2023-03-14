@@ -1,28 +1,19 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Card, Header, List, Popup, Spinner } from '../components';
-import { showPopup } from '../state/action-creators/popup';
-import { setSelectedPokemon } from '../state/action-creators/pokemon';
-import { fetchPokemonList } from '../state/thunks/pokemon';
-import { padString } from '../utils';
+import React from 'react';
+import { useAtomValue, useSetAtom } from 'jotai';
+import { selectedPokemonAtom, asyncPokemonListAtom, isPopupVisibleAtom } from '../state/atoms';
 import PokemonDetails from '../components/PokemonDetails';
+import { Card, Header, List, Popup } from '../components';
+import { padString } from '../utils';
 
 function App() {
-  const pokemonList = useSelector((state) => state.pokemon.list);
-  const isListLoading = useSelector((state) => state.pokemon.isLoading);
-  const isPopupVisible = useSelector((state) => state.popup.isVisible);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchPokemonList());
-  }, [dispatch]);
+  const pokemonList = useAtomValue(asyncPokemonListAtom);
+  const setSelectedPokemon = useSetAtom(selectedPokemonAtom);
+  const setIsPopupVisible = useSetAtom(isPopupVisibleAtom);
 
   const showSelectedPokemon = (data) => () => {
-    dispatch(setSelectedPokemon(data));
-    dispatch(showPopup());
+    setSelectedPokemon(data);
+    setIsPopupVisible(true);
   };
-
-  const renderSpinner = () => (<Spinner loadingText="Loading..." />);
 
   const renderItem = (data) => {
     const id = padString(data.id);
@@ -39,16 +30,15 @@ function App() {
     );
   };
 
-  const renderList = () => (<List dataSource={pokemonList} renderItem={renderItem} />);
-
   return (
-    <div>
+    <>
       <Header />
-      <Popup isVisible={isPopupVisible}>
+      <Popup>
         <PokemonDetails />
       </Popup>
-      {isListLoading ? renderSpinner() : renderList()}
-    </div>
+
+      <List dataSource={pokemonList} renderItem={renderItem} />
+    </>
   );
 }
 

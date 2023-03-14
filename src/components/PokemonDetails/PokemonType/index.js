@@ -1,5 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAtomValue } from 'jotai';
+import { selectedPokemonAtom } from '../../../state/atoms';
 import Badge from '../../Badge';
 
 const POKEMON_TYPE_COLOR = {
@@ -24,7 +25,7 @@ const POKEMON_TYPE_COLOR = {
 };
 
 const PokemonType = () => {
-  const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon);
+  const selectedPokemon = useAtomValue(selectedPokemonAtom);
 
   return (
     <div className="flex flex-wrap justify-center">
