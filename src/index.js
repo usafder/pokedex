@@ -1,15 +1,18 @@
-import React, { Suspense } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 import 'tachyons';
-import App from './containers/App';
 import { Spinner } from './components';
 import './index.css';
 
-ReactDOM.render(
+const App = React.lazy(() => import('./containers/App'));
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
   <React.StrictMode>
-    <Suspense fallback={<Spinner loadingText="Loading..." />}>
+    <React.Suspense fallback={<Spinner loadingText="Loading..." />}>
       <App />
-    </Suspense>
-  </React.StrictMode>,
-  document.getElementById('root')
+    </React.Suspense>
+  </React.StrictMode>
 );
