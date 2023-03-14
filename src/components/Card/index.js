@@ -5,7 +5,7 @@ const arePropsEqual = (prevProps, nextProps) => (
   prevProps.title === nextProps.title && prevProps.subtitle === nextProps.subtitle
 );
 
-const Card = React.memo((props) => {
+const Card = (props) => {
   const renderTitle = () => (
     <h1 className="code f4 ttc bg-red washed-yellow ma0 pv1 br2 br--top" style={props.titleStyle}>
       {props.title}
@@ -43,7 +43,7 @@ const Card = React.memo((props) => {
       </div>
     </div>
   );
-}, arePropsEqual);
+};
 
 Card.displayName = 'Card';
 
@@ -80,4 +80,4 @@ Card.propTypes = {
   ]),
 };
 
-export default Card;
+export default React.memo(Card, arePropsEqual);
