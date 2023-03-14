@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card } from '../../components';
+import Card from '../Card';
 import { hidePopup } from '../../state/action-creators/popup';
 import { padString } from '../../shared/utils';
-import PokemonType from '../../components/PokemonType';
+import PokemonType from '../PokemonType';
 
-const PokemonDetail = () => {
+const PokemonDetails = () => {
   const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon);
   const id = padString(selectedPokemon.id);
 
@@ -74,4 +74,4 @@ const PokemonDetail = () => {
   );
 };
 
-export default PokemonDetail;
+export default PokemonDetails;

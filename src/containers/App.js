@@ -5,7 +5,7 @@ import { showPopup } from '../state/action-creators/popup';
 import { setSelectedPokemon } from '../state/action-creators/pokemon';
 import { fetchPokemonList } from '../state/thunks/pokemon';
 import { padString } from '../shared/utils';
-import PokemonDetail from './PokemonDetail';
+import PokemonDetails from '../components/PokemonDetails';
 
 function App() {
   const pokemonList = useSelector((state) => state.pokemon.list);
@@ -45,7 +45,7 @@ function App() {
     <div>
       <Header />
       <Popup isVisible={isPopupVisible}>
-        <PokemonDetail />
+        <PokemonDetails />
       </Popup>
       {isListLoading ? renderSpinner() : renderList()}
     </div>
