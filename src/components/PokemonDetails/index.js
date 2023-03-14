@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Card from '../Card';
 import { hidePopup } from '../../state/action-creators/popup';
 import { padString } from '../../shared/utils';
 import PokemonType from '../PokemonType';
+import PokemonStats from '../PokemonStats';
 
 const PokemonDetails = () => {
   const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon);
@@ -11,41 +11,6 @@ const PokemonDetails = () => {
 
   const dispatch = useDispatch();
   const dispatchHidePopup = () => dispatch(hidePopup());
-
-  const renderFieldsGroup = (title, fields) => (
-    <Card title={title} >
-      <ul className="bg-white list ma0 pl0">
-        {
-          fields.map((field) => (
-            <li key={field.label} className="pa2">
-              <span className="fw6">{field.label}:</span> {field.value}
-            </li>
-          ))
-        }
-      </ul>
-    </Card>
-  );
-
-  const renderOtherDetails = () => {
-    const firstFieldsGroup = [
-      { label: 'weight', value: `${selectedPokemon.weight / 10}kg` },
-      { label: 'height', value: `${selectedPokemon.height / 10}m` },
-      {
-        label: 'abilities',
-        value: selectedPokemon.abilities.map((ability) => ability.ability.name).join(', '),
-      },
-    ];
-    const secondFieldsGroup = selectedPokemon.stats.map((item) => ({
-      label: item.stat.name, value: item.base_stat,
-    }));
-
-    return (
-      <div className="w-70-ns center-ns ph2 pa0-ns f6">
-        {renderFieldsGroup('Profile', firstFieldsGroup)}
-        {renderFieldsGroup('Base Stats', secondFieldsGroup)}
-      </div>
-    );
-  };
 
   return (
     <div className="tc ttc ph2 pt3">
@@ -68,8 +33,7 @@ const PokemonDetails = () => {
       </h1>
 
       <PokemonType />
-
-      {renderOtherDetails()}
+      <PokemonStats />
     </div>
   );
 };
