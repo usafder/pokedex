@@ -36,18 +36,14 @@ const PokemonDetail = () => {
     </h1>
   );
 
-  const renderField = (label, value) => (
-    <>
-      <span className="fw6">{label}:</span> {value}
-    </>
-  );
-
   const renderFieldsGroup = (title, fields) => (
     <Card title={title} >
       <ul className="bg-white list ma0 pl0">
         {
           fields.map((field) => (
-            <li key={field.label} className="pa2">{renderField(field.label, field.value)}</li>
+            <li key={field.label} className="pa2">
+              <span className="fw6">{field.label}:</span> {field.value}
+            </li>
           ))
         }
       </ul>
