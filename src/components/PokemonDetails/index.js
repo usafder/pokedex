@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAtomValue, useSetAtom } from 'jotai';
-import { isPopupVisibleAtom, selectedPokemonAtom } from '../../state/atoms';
-import { padString } from '../../utils';
+import { isPopupVisibleAtom, selectedPokemonAtom } from 'state/atoms';
+import { padString } from 'utils';
 import PokemonType from './PokemonType';
 import PokemonStats from './PokemonStats';
 

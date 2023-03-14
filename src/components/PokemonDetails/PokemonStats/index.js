@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAtomValue } from 'jotai';
-import { selectedPokemonAtom } from '../../../state/atoms';
+import { selectedPokemonAtom } from 'state/atoms';
 import PokemonStatsCard from './PokemonStatsCard';
 
 const PokemonStats = () => {

@@ -1,5 +1,5 @@
 import { atom } from 'jotai';
-import apiClient from '../api/api-client';
+import apiClient from 'api/api-client';
 
 export const asyncPokemonListAtom = atom(async () => {
   const response = await apiClient.get(`${process.env.REACT_APP_POKE_API_BASE_URL}?limit=151`);

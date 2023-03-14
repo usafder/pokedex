@@ -1,9 +1,12 @@
 import React from 'react';
 import { useAtomValue, useSetAtom } from 'jotai';
-import { selectedPokemonAtom, asyncPokemonListAtom, isPopupVisibleAtom } from '../state/atoms';
-import PokemonDetails from '../components/PokemonDetails';
-import { Card, Header, List, Popup } from '../components';
-import { padString } from '../utils';
+import { selectedPokemonAtom, asyncPokemonListAtom, isPopupVisibleAtom } from 'state/atoms';
+import PokemonDetails from 'components/PokemonDetails';
+import { padString } from 'utils';
+import Header from 'components/Header';
+import Popup from 'components/Popup';
+import List from 'components/List';
+import Card from 'components/Card';
 
 function App() {
   const pokemonList = useAtomValue(asyncPokemonListAtom);

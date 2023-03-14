@@ -1,10 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import 'tachyons';
-import { Spinner } from './components';
+import Spinner from 'components/Spinner';
 import './index.css';
 
-const App = React.lazy(() => import('./containers/App'));
+const App = React.lazy(() => import('containers/App'));
 
 const container = document.getElementById('root');
 const root = createRoot(container);

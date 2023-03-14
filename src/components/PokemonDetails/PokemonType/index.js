@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAtomValue } from 'jotai';
-import { selectedPokemonAtom } from '../../../state/atoms';
-import Badge from '../../Badge';
+import { selectedPokemonAtom } from 'state/atoms';
+import Badge from 'components/Badge';
 
 const POKEMON_TYPE_COLOR = {
   normal: 'bg-moon-gray',

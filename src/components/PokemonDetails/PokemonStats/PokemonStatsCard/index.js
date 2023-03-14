@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '../../../Card';
+import Card from 'components/Card';
 
 const PokemonStatsCard = ({ title, fields }) => (
   <Card title={title} >
