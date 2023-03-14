@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { hidePopup } from '../../state/action-creators/popup';
-import { padString } from '../../shared/utils';
+import { padString } from '../../utils';
 import PokemonType from './PokemonType';
 import PokemonStats from './PokemonStats';
 

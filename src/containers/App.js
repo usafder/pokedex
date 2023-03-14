@@ -4,7 +4,7 @@ import { Card, Header, List, Popup, Spinner } from '../components';
 import { showPopup } from '../state/action-creators/popup';
 import { setSelectedPokemon } from '../state/action-creators/pokemon';
 import { fetchPokemonList } from '../state/thunks/pokemon';
-import { padString } from '../shared/utils';
+import { padString } from '../utils';
 import PokemonDetails from '../components/PokemonDetails';
 
 function App() {
