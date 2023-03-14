@@ -1,29 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Badge, Card } from '../../components';
+import { Card } from '../../components';
 import { hidePopup } from '../../state/action-creators/popup';
 import { padString } from '../../shared/utils';
-
-const POKEMON_TYPE_COLOR = {
-  normal: 'bg-moon-gray',
-  fire: 'bg-orange near-white',
-  water: 'bg-light-blue',
-  grass: 'bg-green near-white',
-  electric: 'bg-yellow',
-  ice: 'bg-lightest-blue',
-  fighting: 'bg-dark-red near-white',
-  poison: 'bg-light-purple near-white',
-  ground: 'bg-gold',
-  flying: 'bg-blue near-white',
-  psychic: 'bg-hot-pink near-white',
-  bug: 'bg-light-green',
-  rock: 'bg-light-yellow',
-  ghost: 'bg-purple near-white',
-  dark: 'bg-mid-gray near-white',
-  dragon: 'bg-dark-blue near-white',
-  steel: 'bg-silver near-white',
-  fairy: 'bg-light-pink',
-};
+import PokemonType from '../../components/PokemonType';
 
 const PokemonDetail = () => {
   const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon);
@@ -54,20 +34,6 @@ const PokemonDetail = () => {
       {selectedPokemon.name}
       <span className="courier f5 db">#{id}</span>
     </h1>
-  );
-
-  const renderType = () => (
-    <div className="flex flex-wrap justify-center">
-      {
-        selectedPokemon.types.map(({ type }) => (
-          <Badge
-            key={type.name + id}
-            label={type.name}
-            backgroundColor={POKEMON_TYPE_COLOR[type.name]}
-          />
-        ))
-      }
-    </div>
   );
 
   const renderField = (label, value) => (
@@ -114,7 +80,7 @@ const PokemonDetail = () => {
       {renderCloseButton()}
       {renderImage()}
       {renderNameAndID()}
-      {renderType()}
+      <PokemonType />
       {renderOtherDetails()}
     </div>
   );
