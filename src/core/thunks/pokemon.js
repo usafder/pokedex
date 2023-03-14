@@ -3,7 +3,7 @@ import {
   getPokemonListSuccess,
   getPokemonListFailure,
 } from '../actionCreators/pokemon';
-import apiClient from '../../services/apiClient';
+import apiClient from '../../api/api-client';
 
 
 export const fetchPokemonList = () => (dispatch) => {
