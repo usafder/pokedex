@@ -1,6 +1,6 @@
 .spinner {
-  border-left-color: #cccccc; /* moon-gray */
-  border-bottom-color: #cccccc;
+  border-left-color: #cccccc !important; /* moon-gray */
+  border-bottom-color: #cccccc !important;
   animation: spin 1s linear infinite;
 }
 
