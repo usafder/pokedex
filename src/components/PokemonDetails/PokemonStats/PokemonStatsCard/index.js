@@ -4,10 +4,10 @@ import Card from 'components/Card';
 
 const PokemonStatsCard = ({ title, fields }) => (
   <Card title={title} >
-    <ul className="bg-white list ma0 pl0">
+    <ul aria-label={title} className="bg-white list ma0 pl0">
       {
         fields.map((field) => (
-          <li key={field.label} className="pa2">
+          <li key={field.label} aria-label={field.label} className="pa2">
             <span className="fw6">{field.label}:</span> {field.value}
           </li>
         ))
