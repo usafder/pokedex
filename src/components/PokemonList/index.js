@@ -8,7 +8,7 @@ const PokemonList = (props) => {
   const pokemonList = useAtomValue(asyncPokemonListAtom);
 
   return (
-    <div className={`flex flex-wrap justify-around ${props.cssClass}`}>
+    <div className={`flex flex-wrap justify-around ${props.cssClass}`} role="list">
       {pokemonList.map((listItem) => <PokemonListItem key={listItem.id} data={listItem} />)}
     </div>
   );

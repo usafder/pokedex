@@ -83,8 +83,19 @@ describe('Pokedex App', () => {
   afterEach(() => closePopupIfVisible());
 
   describe('given the list of pokemons has loaded', () => {
+    it('then displays the list of pokemons to the user', async () => {
+      const pokemonList = await screen.findByRole('list');
+      const pikachu = within(pokemonList).getByText(PIKACHU_MOCK_DATA.name);
+      const charizard = within(pokemonList).getByText(CHARIZARD_MOCK_DATA.name);
+      const mewtwo = within(pokemonList).getByText(MEWTWO_MOCK_DATA.name);
+    
+      expect(pikachu).toBeVisible();
+      expect(charizard).toBeVisible();
+      expect(mewtwo).toBeVisible();
+    });
+
     describe('when the user clicks on one of the pokemons', () => {
-      it('then display the details of that pokemon in a popup', async () => {
+      it('then displays the details of that pokemon in a popup', async () => {
         const pokemonToSelect = await screen.findByText('pikachu');
         await userEvent.click(pokemonToSelect);
         const popup = await screen.findByRole('dialog');
