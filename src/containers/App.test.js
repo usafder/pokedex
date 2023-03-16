@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, within } from '@testing-library/react';
+import { act, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { when } from 'jest-when';
 import App from './App';
@@ -34,6 +34,19 @@ const renderApp = () => render(
   </div>
 );
 
+const renderAppWithMockedApiCalls = async () => {
+  mockApiCalls();
+  await act(() => renderApp());
+};
+
+const closePopupIfVisible = async () => {
+  const popup = screen.queryByRole('dialog');
+  if (popup) {
+    const popupCloseButton = within(popup).getByRole('button', { name: 'close' });
+    await userEvent.click(popupCloseButton);
+  }
+};
+
 const assertProfileSection = (popup) => {
   const profileSection = within(popup).getByRole('list', { name: 'Profile' });
   const profileSectionHeading = within(popup).getByRole('heading', { name: 'Profile' });
@@ -64,16 +77,16 @@ const assertBaseStatsSection = (popup) => {
   expect(pokemonSpeed).toHaveTextContent('speed: 90');
 };
 
-describe('App', () => {
+describe('Pokedex App', () => {
+  beforeEach(() => renderAppWithMockedApiCalls());
+
+  afterEach(() => closePopupIfVisible());
+
   describe('given the list of pokemons has loaded', () => {
     describe('when the user clicks on one of the pokemons', () => {
       it('then display the details of that pokemon in a popup', async () => {
-        mockApiCalls();
-        renderApp();
-
         const pokemonToSelect = await screen.findByText('pikachu');
         await userEvent.click(pokemonToSelect);
-
         const popup = await screen.findByRole('dialog');
         expect(popup).toBeVisible();
         const pokemonName = within(popup).getByRole('heading', { name: 'pikachu #025' });
@@ -82,6 +95,20 @@ describe('App', () => {
         expect(pokemonImg).toBeVisible();
         assertProfileSection(popup);
         assertBaseStatsSection(popup);
+      });
+    });
+  });
+
+  describe('given the popup to display the details of a pokemon is open', () => {
+    describe('when the user clicks on the close button', () => {
+      it('then hides the popup', async () => {
+        const pokemonToSelect = await screen.findByText('pikachu');
+        await userEvent.click(pokemonToSelect);
+        const popup = await screen.findByRole('dialog');
+        expect(popup).toBeVisible();
+        await closePopupIfVisible();
+
+        expect(popup).not.toBeVisible();
       });
     });
   });

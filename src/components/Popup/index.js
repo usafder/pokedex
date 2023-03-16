@@ -21,6 +21,7 @@ const Popup = (props) => {
         w-70-m w-50-l center-ns overflow-y-auto bg-washed-yellow br2"
     >
       <button
+        aria-label="close"
         className="absolute top-0 right-0 mt2 mr2 fw6 ba br-100 b--black-10 bg-dark-gray near-white dim pointer"
         onClick={hidePopup}
       >
