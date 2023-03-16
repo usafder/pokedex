@@ -6,9 +6,11 @@
         "jest": true
     },
     "extends": [
+        "react-app",
         "eslint:recommended",
         "plugin:react/recommended"
     ],
+    "ignorePatterns": ["node_modules", "build"],
     "settings": {
         "react": {
             "version": "detect"
