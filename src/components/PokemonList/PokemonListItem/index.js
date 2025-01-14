@@ -20,7 +20,7 @@ const PokemonListItem = ({ data }) => {
       <Card
         title={data.name}
         subtitle={`#${id}`}
-        imageSource={`${process.env.REACT_APP_POKE_IMG_BASE_URL}/${id}.png`}
+        imageSource={`${process.env.REACT_APP_POKE_IMG_BASE_URL}/${data.id}.svg`}
         onClickHandler={showSelectedPokemon}
       />
     </div>

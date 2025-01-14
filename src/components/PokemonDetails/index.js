@@ -12,7 +12,7 @@ const PokemonDetails = () => {
   return (
     <div className="tc ttc ph2 pt3">
       <img
-        src={`${process.env.REACT_APP_POKE_IMG_BASE_URL}/${selectedPokemonId}.png`}
+        src={`${process.env.REACT_APP_POKE_IMG_BASE_URL}/${selectedPokemon.id}.svg`}
         alt="pokemon"
         className="h5-l w5-l bg-near-white br-100 shadow-1"
       />
