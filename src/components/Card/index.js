@@ -23,7 +23,9 @@ const Card = (props) => {
     props.imageSource && (
       <img
         src={props.imageSource}
-        className="db center mt1 ph1 h5 w5"
+        className="db center ph1"
+        width={250}
+        height={250}
         style={props.imageStyle}
         alt="pokemon"
       />

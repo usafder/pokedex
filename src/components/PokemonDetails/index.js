@@ -14,7 +14,9 @@ const PokemonDetails = () => {
       <img
         src={`${process.env.REACT_APP_POKE_IMG_BASE_URL}/${selectedPokemon.id}.svg`}
         alt="pokemon"
-        className="h5-l w5-l bg-near-white br-100 shadow-1"
+        height={250}
+        width={250}
+        className="bg-near-white br-100 shadow-1"
       />
 
       <h1 className="code ma0 f2">
